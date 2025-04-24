@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./ReceitaWs.Web
+      dockerfile: Dockerfile
+    container_name: receita-frontend
+    ports:
+      - "5001:80"
+    depends_on:
+      - backend
+    networks:
+      - receita-network
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+    container_name: receita-backend
+    ports:
+      - "5000:5000"
+    networks:
+      - receita-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+
+networks:
+  receita-network:
+    driver: bridge
