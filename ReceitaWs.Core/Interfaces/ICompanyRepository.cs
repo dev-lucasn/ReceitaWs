@@ -9,5 +9,6 @@ namespace ReceitaWs.Core.Interfaces
         Task DeleteAsync(Company company);
         Task<Company?> GetByIdAsync(Guid id); 
         Task<IEnumerable<Company>> GetAllAsync();
+        Task<Company?> GetByCnpjAsync(string cnpj);
     }
 }

@@ -41,5 +41,12 @@ namespace ReceitaWs.Infrastructure.Repositories
             _context.Companies.Remove(company);
             await _context.SaveChangesAsync();
         }
+        
+        public async Task<Company?> GetByCnpjAsync(string cnpj)
+        {
+            return await _context.Companies
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Cnpj == cnpj);
+        }
     }
 }

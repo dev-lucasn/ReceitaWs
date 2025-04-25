@@ -21,6 +21,12 @@ namespace ReceitaWs.Application.Services
         {
             if (string.IsNullOrWhiteSpace(cnpj))
                 return (false, "CNPJ inválido");
+            
+            var cnpjReplace = cnpj.Replace(".", "").Replace("/", "").Replace("-", "").Trim();
+
+            var existing = await _repository.GetByCnpjAsync(cnpjReplace);
+            if (existing is not null)
+                return (false, "Empresa já registrada!");
 
             var response = await _httpClient.GetAsync($"https://www.receitaws.com.br/v1/cnpj/{cnpj}");
             if (!response.IsSuccessStatusCode)
@@ -120,7 +126,7 @@ namespace ReceitaWs.Application.Services
         {
             var company = await _repository.GetByIdAsync(id);
             if (company == null || company.UserId != userId)
-                return (false, "Empresa não encontrada ou não autorizada");
+                return (false, "Empresa não encontrada");
 
             await _repository.DeleteAsync(company);
             return (true, "Empresa excluída com sucesso");
