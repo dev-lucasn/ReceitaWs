@@ -74,7 +74,7 @@ http://localhost:5000/swagger
     ├── ReceitaWs.Application      # Casos de uso, serviços, DTOs
     ├── ReceitaWs.Core             # Domínio, entidades e interfaces
     ├── ReceitaWs.Infrastructure   # Banco de dados, repositórios
-    ├── ReceitaWs.Web              # Frontend Vue.js
+    ├── ReceitaWs.Web              # Frontend Next.js
     ├── docker-compose.yml         # Orquestração com Docker
     └── Dockerfiles                # Separados por projeto (API e Web)
 ```
