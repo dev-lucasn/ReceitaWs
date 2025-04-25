@@ -32,7 +32,13 @@ Sistema de autenticação JWT e cadastro de empresas via CNPJ, estruturado com C
     cd ReceitaWs
 ```
 
-### 2. Subir os containers
+### 2. Criar o InitialMigration
+
+```bash
+  dotnet ef migrations add InitialCreate --project ReceitaWs.Infrastructure --startup-project ReceitaWs.API
+```
+
+### 3. Subir os containers
 
 ```bash
     docker compose up --build
