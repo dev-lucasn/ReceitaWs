@@ -10,6 +10,7 @@ builder.WebHost.UseUrls("http://0.0.0.0:5000");
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings"));
+builder.Services.AddHttpClient();
 
 builder.AddCorsConfiguration()
     .AddSwaggerConfiguration()

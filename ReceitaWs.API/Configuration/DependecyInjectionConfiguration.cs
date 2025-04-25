@@ -18,6 +18,8 @@ namespace ReceitaWs.API.Configuration
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<ICompanyService, CompanyService>();
+            builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
             return builder;
         }
     }

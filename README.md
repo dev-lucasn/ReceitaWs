@@ -32,7 +32,13 @@ Sistema de autenticação JWT e cadastro de empresas via CNPJ, estruturado com C
     cd ReceitaWs
 ```
 
-### 2. Subir os containers
+### 2. Criar o InitialMigration
+
+```bash
+  dotnet ef migrations add InitialCreate --project ReceitaWs.Infrastructure --startup-project ReceitaWs.API
+```
+
+### 3. Subir os containers
 
 ```bash
     docker compose up --build
@@ -74,7 +80,7 @@ http://localhost:5000/swagger
     ├── ReceitaWs.Application      # Casos de uso, serviços, DTOs
     ├── ReceitaWs.Core             # Domínio, entidades e interfaces
     ├── ReceitaWs.Infrastructure   # Banco de dados, repositórios
-    ├── ReceitaWs.Web              # Frontend Vue.js
+    ├── ReceitaWs.Web              # Frontend Next.js
     ├── docker-compose.yml         # Orquestração com Docker
     └── Dockerfiles                # Separados por projeto (API e Web)
 ```
